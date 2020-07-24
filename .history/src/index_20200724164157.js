@@ -26,17 +26,13 @@ function createStore(reducer) {
     state = reducer(state, action)
     render();
   }
-  function getState(state) {
+  function getState() {
     return state;
   };
 
 return {
-  dispatch,
-  getState
+  getState,
+  dispatch
 }
 }
-
-let store = createStore(reducer) 
-store.dispatch({ type: 'ADD_CANDY' });
-
 
