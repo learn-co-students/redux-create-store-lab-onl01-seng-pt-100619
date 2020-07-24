@@ -1,4 +1,3 @@
-
 function candyReducer(state = [], action) {
   switch (action.type) {
     case 'ADD_CANDY':
@@ -23,7 +22,6 @@ function render() {
 function createStore(reducer) {
   let state;
 
-
   function dispatch(action) {
     state = reducer(state, action)
     render();
@@ -31,6 +29,7 @@ function createStore(reducer) {
   function getState(state) {
     return state;
   };
+  let store = createStore(reducer) 
 
 return {
   dispatch,
@@ -38,5 +37,5 @@ return {
 }
 }
 
-let store 
+
 

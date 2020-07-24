@@ -1,3 +1,4 @@
+let store = createStore(reducer) 
 
 function candyReducer(state = [], action) {
   switch (action.type) {
@@ -38,5 +39,5 @@ return {
 }
 }
 
-let store 
+
 
