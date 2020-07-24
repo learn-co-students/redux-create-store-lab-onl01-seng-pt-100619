@@ -22,21 +22,21 @@ function render() {
 function createStore(reducer) {
   let state;
 
-  function dispatch(action) {
-    state = reducer(state, action)
-    render();
-  }
-  function getState(state) {
+  // function dispatch(action) {
+  //   state = reducer(state, action)
+  //   render();
+  // }
+  function getState() {
     return state;
   };
 
 return {
-  dispatch,
-  getState
+  getState,
+  dispatch
 }
 }
 
 let store = createStore(reducer) 
-store.dispatch({ type: 'ADD_CANDY' });
+store.dispatch({ type: '@@INIT' });
 
 

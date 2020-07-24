@@ -21,22 +21,38 @@ function render() {
 
 function createStore(reducer) {
   let state;
-
+ 
   function dispatch(action) {
-    state = reducer(state, action)
+    state = reducer(state, action);
     render();
   }
-  function getState(state) {
+ 
+  function getState() {
     return state;
   };
-
-return {
-  dispatch,
-  getState
+ 
+  return {
+    dispatch,
+    getState
+  };
+};
+ 
+function reducer(state = { count: 0 }, action) {
+  switch (action.type) {
+    case 'INCREASE_COUNT':
+      return { count: state.count + 1 };
+ 
+    default:
+      return state;
+  }
 }
-}
-
-let store = createStore(reducer) 
-store.dispatch({ type: 'ADD_CANDY' });
-
-
+ 
+ 
+ 
+let store = createStore(reducer) // createStore takes the reducer reducer as an argument
+store.dispatch({ type: '@@INIT' });
+let button = document.getElementById('button');
+ 
+button.addEventListener('click', () => {
+  store.dispatch({ type: 'INCREASE_COUNT' });
+});

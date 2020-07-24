@@ -20,23 +20,7 @@ function render() {
 // once the store is created, call an initial dispatch
 
 function createStore(reducer) {
-  let state;
 
-  function dispatch(action) {
-    state = reducer(state, action)
-    render();
-  }
-  function getState(state) {
-    return state;
-  };
 
-return {
-  dispatch,
-  getState
 }
-}
-
-let store = createStore(reducer) 
-store.dispatch({ type: 'ADD_CANDY' });
-
 
